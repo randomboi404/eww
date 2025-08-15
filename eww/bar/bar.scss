@@ -1,0 +1,302 @@
+.bar {
+  box-shadow: 0 2px 3px 1px $shadow-secondary;
+  border-radius: 10px;
+  background-color: $bg-darker;
+  padding: 3px;
+  margin: 6.5px;
+}
+
+.cpu-i,
+.mem-i,
+.up-i,
+.net-i,
+.bt-i,
+.bat-i,
+.aud-i,
+.clk-i {
+  background-color: $bar-accent;
+  color: $bar-bg;
+  padding: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 10px 0 0 10px;
+}
+
+.cpu-t1,
+.cpu-t2,
+.up-t,
+.mem-t,
+.net-t,
+.bat-t,
+.aud-t,
+.clk-t,
+.cava,
+.notif-hist {
+  background-color: $bar-bg;
+  color: $bar-text;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 0 10px 10px 0;
+}
+
+.workspace-container {
+  background-color: $bar-bg;
+  color: $bar-text;
+  border-radius: 10px;
+}
+
+.workspace {
+  color: $bar-text;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-right: 0.7rem;
+  padding-left: 0.7rem;
+  border-radius: 0.5rem;
+}
+
+.workspace-active {
+  background-color: $text-muted;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  border-radius: 0.5rem;
+}
+
+.workspace-empty {
+  color: $text-disabled;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  border-radius: 0.5rem;
+}
+
+.workspace-e:hover {
+  opacity: 0.7;
+  border-radius: 0.5rem;
+}
+
+.workspace-ia-hover {
+  background-color: rgba($color: #2A262C, $alpha: 0.9);
+  color: $text-disabled;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  border-radius: 7px;
+}
+
+.logo {
+  background-color: $bar-bg;
+  color: #9FA224;
+  padding: 0 18px;
+  border-radius: 10px;
+  margin: 0 0.1rem 0 0;
+}
+
+.bt-i,
+.cava,
+.notif-hist {
+  border-radius: 10px;
+}
+
+.idle-i {
+  background-color: $bar-bg;
+  color: $bar-text;
+  padding: 0 12px;
+  border-radius: 10px;
+}
+
+.cpu-t1 {
+  padding-right: 0px;
+  border-radius: 0;
+}
+
+.cpu-t2 {
+  background-color: $bar-bg;
+  color: #A1A1A1;
+  padding: 0 12px;
+  padding-left: 0px;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Gruvbox Tray Variables */
+$bg: #282828;
+$white: #d4be98;
+$grey: #5a524c;
+$red: #ea6962;
+$yellow: #d8a657;
+$green: #a9b665;
+$blue: #7daea3;
+$cyan: #89b482;
+$purple: #d3869b;
+
+$accentColor: $red;
+$altBg: #45403d;
+$altBgRadius: rgba(69, 64, 61, 0.99);
+$trayDisabled: #7c6f64;
+
+$borderRadius: 0.6em;
+
+/* System Tray */
+.systray {
+  background-color: $bar-bg;
+  color: $bar-text;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.systray menu {
+  border-radius: $borderRadius;
+  padding: 0.33em;
+  color: #EBDBB2;
+  background-color: $bar-bg;
+
+  menuitem {
+    padding: 0.25em;
+
+    arrow {
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+      color: #EBDBB2;
+      min-width: 1em;
+      min-height: 1em;
+    }
+
+    radio {
+      min-width: 1em;
+      min-height: 1em;
+      padding-right: 0.5em;
+      -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-unchecked-dark.png"));
+
+      &:checked {
+        -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-checked-dark.png"));
+        &:hover {
+          -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-checked-selected.png"));
+        }
+      }
+
+      &:hover {
+        -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-unchecked-selected.png"));
+      }
+    }
+
+    check {
+      min-width: 1em;
+      min-height: 1em;
+      padding-right: 0.5em;
+      -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-unchecked-dark.png"));
+
+      &:checked {
+        -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-checked-dark.png"));
+        &:hover {
+          -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-checked-selected.png"));
+        }
+      }
+
+      &:hover {
+        -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-unchecked-selected.png"));
+      }
+    }
+
+    &:disabled label {
+      color: $trayDisabled;
+    }
+
+    &:hover {
+      arrow {
+        color: $bg;
+      }
+      background-color: #1D1E1D;
+      color: #D17E48;
+    }
+  }
+
+  separator {
+    background-color: $bg;
+    padding-top: 0.06em;
+
+    &:last-child {
+      padding: unset;
+    }
+  }
+}
+
+
+$primary: #fface8;
+$onPrimary: #58124c;
+$primaryContainer: #732b64;
+$onPrimaryContainer: #ffd7f1;
+$secondary: #dcbed0;
+$onSecondary: #3f2a38;
+$secondaryContainer: #57404f;
+$onSecondaryContainer: #f9daec;
+$tertiary: #f4b9a2;
+$onTertiary: #4b2717;
+$tertiaryContainer: #663c2b;
+$onTertiaryContainer: #ffdbcc;
+$error: #ffb4a9;
+$onError: #680003;
+$errorContainer: #930006;
+$onErrorContainer: #ffb4a9;
+$background: #1f1a1d;
+$onBackground: #eae0e3;
+$surface: #1f1a1d;
+$onSurface: #eae0e3;
+$surfaceVariant: #4f434a;
+$onSurfaceVariant: #d2c3ca;
+$outline: #9b8d94;
+$shadow: #000000;
+$inverseSurface: #eae0e3;
+$inverseOnSurface: #342f32;
+$inversePrimary: #8f437d;
+
+
+
+
+.tray_box {
+  background-color: $bar-bg;
+  color: $bar-text;
+  border-radius: 10px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+tooltip {
+    background-color: $bg;
+    color: $onSurface;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+menu {
+    background-color: #141617;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #EBDBB2;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+menu>menuitem {
+    padding: 0.4rem 0.8rem;
+    transition: 0.1s;
+    border-radius: 1rem;
+}
+
+menu>menuitem:disabled {
+    color: #7c6f64;
+    background-color: transparent;
+}
+
+menu>menuitem:hover {
+    color: #D17E48;
+    background-color: #1D1E1D;
+}
+
+menu>menuitem arrow {
+    -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+    color: #EBDBB2;
+    min-width: 1em;
+    min-height: 1em;
+}

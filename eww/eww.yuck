@@ -1,0 +1,20 @@
+(include "./bar/bar.yuck")
+
+(include "./bar/popup-menus/calender/calender.yuck")
+(include "./bar/popup-menus/dashboard/dashboard.yuck")
+(include "./bar/popup-menus/media/media.yuck")
+
+(include "./bar/popup-menus/utils/bluetooth.yuck")
+(include "./bar/popup-menus/utils/cpu-profile.yuck")
+(include "./bar/popup-menus/utils/wifi.yuck")
+
+(include "./dock/dock.yuck")
+
+(include "./notifications/notifications.yuck")
+
+(include "./widgets/bg-panel/bg-panel.yuck")
+(include "./widgets/activate-linux/activate-linux.yuck")
+
+(include "./lock/lock.yuck")
+
+(include "./osd/osd.yuck")

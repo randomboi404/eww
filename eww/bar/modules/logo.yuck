@@ -1,0 +1,3 @@
+(defwidget logo []
+	(eventbox :cursor "pointer" :tooltip "I use Arch btw" :onclick "./bar/popup-menus/scripts/toggle-dashboard.sh" :onrightclick "hyprctl dispatch exec 'kitty -e btop --force-utf'" (label :class "logo" :text "󰣇"))
+)

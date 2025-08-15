@@ -1,0 +1,7 @@
+(deflisten baticon `./bar/scripts/baticon.sh`)
+
+(defwidget battery [] 
+	(box :space-evenly false :orientation "h"
+  (eventbox :cursor "pointer" :onclick "./bar/popup-menus/scripts/toggle-cpu-profile.sh"(label :text "${baticon}" :class "bat-i"))
+	(label :text "${EWW_BATTERY.BAT0.capacity}%" :class "bat-t"))
+)

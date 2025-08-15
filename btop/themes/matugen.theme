@@ -1,0 +1,89 @@
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg] = "#0f1416"
+
+# Main text color
+theme[main_fg] = "#dee3e5"
+
+# Title color for boxes
+theme[title] = "#b2cbd2"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg] = "#dee3e5"
+
+# Selected item background (processes box)
+theme[selected_bg] = "#85d2e7"
+
+# Selected item foreground
+theme[selected_fg] = "#93000a"
+
+# Inactive/disabled text
+theme[inactive_fg] = "#334a51"
+
+# Graph text (e.g. uptime/scaling)
+theme[graph_text] = "#3f4565"
+
+# Background of percentage meters
+theme[meter_bg] = "#3f4565"
+
+# Misc colors (process box details)
+theme[proc_misc] = "#acedff"
+
+# CPU box outline
+theme[cpu_box] = "#bfc4eb"
+
+# Memory/disks box outline
+theme[mem_box] = "#b2cbd2"
+
+# Net up/down box outline
+theme[net_box] = "#acedff"
+
+# Processes box outline
+theme[proc_box] = "#85d2e7"
+
+# Divider lines
+theme[div_line] = "#171c1e"
+
+# Temperature graph colors
+theme[temp_start] = "#bfc4eb"
+theme[temp_mid]   = "#85d2e7"
+theme[temp_end]   = "#bfc4eb"
+
+# CPU graph gradient
+theme[cpu_start] = "#85d2e7"
+theme[cpu_mid]   = "#bfc4eb"
+theme[cpu_end]   = "#bfc4eb"
+
+# Memory/Disk free meter (use primary dark)
+theme[free_start] = "#85d2e7"
+theme[free_mid]   = "#85d2e7"
+theme[free_end]   = "#85d2e7"
+
+# Cached meter (primary_fixed)
+theme[cached_start] = "#acedff"
+theme[cached_mid]   = "#acedff"
+theme[cached_end]   = "#acedff"
+
+# Available meter (secondary dark)
+theme[available_start] = "#b2cbd2"
+theme[available_mid]   = "#b2cbd2"
+theme[available_end]   = "#b2cbd2"
+
+# Used meter (tertiary dark)
+theme[used_start] = "#bfc4eb"
+theme[used_mid]   = "#bfc4eb"
+theme[used_end]   = "#bfc4eb"
+
+# Download graph (secondary → tertiary)
+theme[download_start] = "#b2cbd2"
+theme[download_mid]   = "#3f4565"
+theme[download_end]   = "#3f4565"
+
+# Upload graph (tertiary → primary)
+theme[upload_start] = "#bfc4eb"
+theme[upload_mid]   = "#85d2e7"
+theme[upload_end]   = "#85d2e7"
+
+# Process box color gradient (secondary → tertiary_container)
+theme[process_start] = "#b2cbd2"
+theme[process_mid]   = "#3f4565"
+theme[process_end]   = "#3f4565"

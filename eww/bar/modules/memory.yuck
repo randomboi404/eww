@@ -1,0 +1,7 @@
+(defwidget memory []
+  (box
+		:space-evenly false
+		:orientation "h"
+    (label :text "" :class "mem-i")
+    (label :class "mem-t" :text "${system.meminfo}" :tooltip "CPU usage")
+	))

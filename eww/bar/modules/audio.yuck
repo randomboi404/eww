@@ -1,0 +1,7 @@
+(deflisten audio `./bar/scripts/audio.sh`)
+
+(defwidget audio [] 
+	(box :space-evenly false :orientation "h"
+  (eventbox :cursor "pointer" :onclick "hyprctl dispatch exec pavucontrol"(label :text "${audio.icon}" :class "aud-i"))
+	(label :text "${audio.value}" :class "aud-t"))
+)

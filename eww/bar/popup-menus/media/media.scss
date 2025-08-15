@@ -1,0 +1,74 @@
+.music-container {
+  box-shadow: 0 2px 3px 2px $shadow-primary;
+  background-color: $bg-secondary;
+  margin: 5.5px;
+  border-radius: 20px;
+  padding: 5px;
+  min-width: 385px;
+}
+
+.music-title {
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-top: 7px;
+  color: $text-secondary;
+}
+
+.music-thumbnail {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 7rem;
+  min-width: 7rem;
+  border-radius: 5rem;
+}
+
+.artist {
+  color: #5a645e;
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.music-slider {
+  margin-top: 10px;
+}
+
+.music-slider trough {
+  background-color: $bg-tertiary;
+  border: 1px solid rgba($border-primary, 0.5);
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 270px;
+  margin: 0 20px 0 20px;
+}
+
+.music-slider trough > slider {
+  background-color: black;
+  border-radius: 100%;
+  border: 3px solid rgba($color14, 0.9);
+  min-width: 10px;
+  min-height: 10px;
+  margin: -10px;
+}
+
+.music-slider trough highlight {
+  background-image: linear-gradient(to right, $color1, $color13);
+  border-radius: 10px;
+}
+
+.music-timer {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  color: $text-primary;
+}
+
+.mico {
+  color: $text-secondary;
+  font-size: 30px;
+  margin-left: 10px;
+  transition: color 0.2s;
+  &:hover {
+    color: $text-muted;
+  }
+}

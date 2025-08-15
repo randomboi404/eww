@@ -1,0 +1,306 @@
+* {
+    font-family:
+        "Cantarell", "Noto Sans CJK JP", "JetBrainsMono Nerd Font Propo",
+        "Nerd Font", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@import '../../.cache/wal/colors-waybar.css';
+
+@define-color bg @background;
+@define-color fg @cursor;
+@define-color ic @color12;
+@define-color it  @bg;
+@define-color border @color1;
+@define-color tt @fg;
+
+#waybar {
+    background-color: #11151a;
+    /*background: transparent;*/
+    color: #c0caf5;
+    border-radius: 50px 50px 50px 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+tooltip {
+    background-color: @bg;
+    border: 1px solid @border;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @tt;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+    padding: 0 5px;
+    transition: all 0.2s ease;
+}
+
+#workspaces {
+    background-color: @bg;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 2px;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #C4B499;
+    border-radius: 6px;
+    margin: 0 2px;
+    padding: 0 8px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: @color15;
+    background-color: rgba(187, 154, 247, 0.1);
+}
+
+#workspaces button.active {
+    color: @color15;
+    background-color: @color1;
+    font-weight: bold;
+}
+
+#workspaces button.empty:not(.active) {
+    color: #737373;
+}
+
+#workspaces button.urgent {
+    background-color: #f7768e;
+    color: #1a1b26;
+}
+
+#custom-separator {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#custom-cava {
+    background-color: @bg;
+    font-family: monospace;
+    padding: 0 12px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#custom-weather.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 10px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#custom-weather.text {
+    background-color: @bg;
+    color:  @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#custom-logo {
+    background-color: @bg;
+    color: #9FA224;
+    padding: 0 12px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#custom-notification {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#window {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#custom-updates.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 10px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#custom-updates.text {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#idle_inhibitor {
+    background-color: @bg;
+    color: @fg;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0 10px;
+}
+
+#idle_inhibitor.activated {
+    color: @fg;
+}
+
+#custom-snapper {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 5px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#network.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 12px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#network.text {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#bluetooth.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 12px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#cpu.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 10px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#cpu.text {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#memory.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 10px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#memory {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#battery.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 12px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#battery.text {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#battery.critical:not(.charging) {
+    animation: blink 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
+        alternate;
+}
+
+#pulseaudio.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 12px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#pulseaudio.text {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#clock.icon {
+    background-color: @ic;
+    color: @it;
+    padding: 0 12px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0 5px 5px;
+}
+
+#clock.text {
+    background-color: @bg;
+    color: @fg;
+    padding: 0 12px;
+    border-radius: 0 10px 10px 0;
+    margin: 5px 5px 5px 0;
+}
+
+#tray {
+    background-color: @bg;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f7768e;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f7768e;
+        color: #1a1b26;
+    }
+}
+
+.modules-left > widget\:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget\:last-child > #workspaces {
+    margin-right: 0;
+}

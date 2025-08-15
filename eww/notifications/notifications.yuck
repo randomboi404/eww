@@ -1,0 +1,187 @@
+;; Notifications
+(defvar end-binary "./bin/end-rs") 
+(defvar end-notifications '')
+(defvar end-histories '')
+(defvar end-replies '')
+(defvar end-reply-text '')
+
+(defwindow notification-frame
+  :monitor 0
+  :geometry (geometry 
+    :x "0px"
+    :y "0px"
+    :width "480px"
+    :height "0px" :anchor "top right")
+  :stacking "overlay"
+  (literal :content end-notifications))
+
+(defwindow history-frame
+  :monitor 0
+  :class "end-history-frame"
+  :geometry (geometry 
+   :x "0.5%"
+   :y "0.5%"
+   :width "30px"
+   :height "60%"
+   :anchor "top right")
+  :stacking "overlay"
+	(box
+  (revealer :transition "slideright" :reveal notifhisrev (box :class "notif-container" (scroll :hscroll false :vscroll true (literal :content end-histories))))))
+
+(defwindow reply-frame
+  :monitor 0
+  :geometry (geometry 
+    :x "0px"
+    :y "0px"
+    :width "480px"
+    :height "0px"
+    :anchor "center")
+  :stacking "overlay"
+  :focusable true
+  (literal :content end-replies))
+
+(defvar notifhisrev false)
+
+(defwidget end-notification[notification]
+  (eventbox
+    :onclick "${end-binary} close ${notification.id}"
+    :valign "start"
+    :height 100
+    (
+      box
+      :class `end-default-notification-box-${notification.urgency} container`
+      :orientation "vertical"
+      :space-evenly false
+      (box
+        :class "end-default-notification-title-bar"
+        :orientation "horizontal"
+        :space-evenly false
+        (image
+          :path {notification.app_icon}; end sets this property if the notification contains an image
+          :class "end-default-notification-appicon"
+	  :visible {notification.app_icon != "" ? true : false}
+          :image-width 25
+          :image-height 25)
+        (label
+          :class "end-default-notification-appname"
+          :valign "start"
+          :yalign 0
+          :xalign 0
+          :text {notification.application}))
+      (box
+        :class "end-default-notification-body-box"
+        :orientation "horizontal"
+        :space-evenly false
+        (image
+          :path {notification.icon}; end sets this property if the notification contains an image
+          :image-width 100
+          :image-height 100
+        )
+        (box
+          :class "content-box"
+          :valign "start"
+          :orientation "vertical"
+          :space-evenly "false"
+          (label 
+            :class "notification-text notification-title"
+            :valign "start"
+            :yalign 0
+            :xalign 0
+            :markup {notification.summary})
+          (label
+            :class "notification-text notification-content"
+            :valign "start"
+            :yalign 0
+            :xalign 0
+            :vexpand true
+            :wrap true
+            :markup {notification.body})
+        )
+        (box
+          :class "end-notification-buttons"
+          :orientation "horizontal"
+          :space-evenly false
+          :valign "end"
+          :vexpand false
+          (for action in {notification.actions}
+            (button
+              :class "end-notification-button"
+              :onclick "${end-binary} action ${notification.id} ${action.id}"
+              :vexpand false
+              {action.text}))
+          )))))
+
+(defwidget end-history[history]
+  (eventbox
+    ; :onhoverlost "eww update notifhisrev=false"
+    :height 50
+    (box
+      :class "end-history-box"
+      :orientation "vertical"
+      :space-evenly false
+      (box
+        :class "end-history-title-bar"
+        :orientation "horizontal"
+        :space-evenly false
+        (image
+          :path {history.app_icon}; end sets this property if the notification contains an image
+          :class "end-default-notification-appicon"
+	  :visible {history.app_icon != "" ? true : false}
+          :image-width 15
+          :image-height 15)
+        (label
+          :class "end-default-notification-appname"
+          :valign "start"
+          :yalign 0
+          :xalign 0
+          :text {history.app_name}))
+      (box
+        :class "end-history-body-box"
+        :orientation "horizontal"
+        :space-evenly false
+        :geometry (geometry :width "100%" :height "50px")
+        (image
+          :path {history.icon}; end sets this property if the notification contains an image
+          :image-width 50
+          :image-height 50
+        )
+        (box
+          :class "content-box"
+          :orientation "vertical"
+          :space-evenly false
+          (label 
+            :class "notification-text notification-title"
+            :yalign 1
+            :xalign 0
+            :markup {history.summary})
+          (label
+            :class "notification-text notification-content"
+            :yalign 1
+            :xalign 0
+            :wrap true
+            :markup {history.body}))))))
+
+(defwidget end-reply[id]
+  (box
+    :class "end-default-notification-box"
+    :orientation "vertical"
+    :space-evenly false
+    (input
+      :class "end-notification-reply"
+      :value end-reply-text
+      :onchange "${EWW_CMD} update end-reply-text='{}'")
+    (box
+      :class "end-notification-buttons"
+      :orientation "horizontal"
+      :space-evenly false
+      (button
+        :class "end-notification-button"
+        :onclick `${end-binary} reply send ${id} "${end-reply-text}"`
+        :vexpand false
+        "Reply")
+      (button
+        :class "end-notification-button"
+        :onclick "${end-binary} reply close ${id}"
+        :vexpand false
+        "Cancel"))
+  ))

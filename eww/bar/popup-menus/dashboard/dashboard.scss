@@ -1,0 +1,345 @@
+.container {
+  box-shadow: 0 2px 3px 2px $shadow-primary;
+  background-color: $bg-primary;
+  border: 2px solid $border-primary;
+  margin: 5.5px;
+  border-radius: 20px;
+  padding: 5px;
+  min-width: 385px;
+}
+
+.main-container {
+  box-shadow: 0 2px 3px 2px $shadow-primary;
+  background-color: $bg-secondary;
+  margin: 5.5px;
+  border-radius: 20px;
+  padding: 5px;
+  min-width: 385px;
+}
+
+.cpu-container {
+  box-shadow: 0 2px 3px 2px $shadow-primary;
+  background-color: $bg-secondary;
+  margin: 5.5px;
+  border-radius: 20px;
+  padding: 5px;
+  min-width: 385px;
+}
+
+.main-title {
+  margin-top: 15px;
+  margin-bottom: 12px;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: $text-accent;
+}
+
+.profile {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  background-color: $bg-dark;
+  min-width: 370px;
+  margin: 0px 7px;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.graph-container {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  background-color: $bg-dark;
+  min-width: 370px;
+  margin: 0px 7px;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.pfp {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  background-image: url('./assets/pfp.png');
+  background-size: 90px;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  min-height: 90px;
+  min-width: 90px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.ctlpanel {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  min-width: 230px;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: rgba(65, 72, 86, 0.3);
+  font-family: "jetbrainsmono nerd font";
+}
+
+.shutdown {
+  color: #e06c75;
+  transition: color 0.3s;
+  &:hover {
+    color: #f38b91;
+  }
+}
+
+.logout {
+  color: #d19a66;
+  transition: color 0.3s;
+  &:hover {
+    color: #e5b07b;
+  }
+}
+
+.lockscr {
+  color: #61afef;
+  transition: color 0.3s;
+  &:hover {
+    color: #79c0ff;
+  }
+}
+
+.reboot {
+  color: #c678dd;
+  transition: color 0.3s;
+  &:hover {
+    color: #d896f0;
+  }
+}
+
+.suspend {
+  color: #56b6c2;
+  transition: color 0.3s;
+  &:hover {
+    color: #6edddf;
+  }
+}
+
+.hibernate {
+  color: #5fb3b3;
+  transition: color 0.3s;
+  &:hover {
+    color: #a1e3e3;
+  }
+}
+
+.monitor-container {
+  margin-bottom: 6px;
+}
+
+.sysctl {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  background-color: $bg-dark;
+  margin: 0px 7px;
+  margin-top: 17px;
+  padding: 10px;
+  min-width: 370px;
+  border-radius: 15px;
+}
+
+.username {
+  color: $text-muted;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.bsht {
+  color: $text-info;
+}
+
+.uptime {
+  color: $text-primary;
+}
+
+.bat1,
+.bat2,
+.bat3 {
+  color: #2ecc71;
+}
+
+.bat4,
+.bat5 {
+  color: #e74c3c;
+}
+
+.charging {
+  color: #f1c40f;
+}
+
+.batico-main {
+  margin-left: 10px;
+  margin-right: 15px;
+  font-size: 50px;
+}
+
+.batico-short {
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+.volico {
+  color: rgb(144, 104, 220);
+  margin-left: 3px;
+}
+
+.bat-percent {
+  color: $text-primary;
+  font-size: 20px;
+}
+
+.bat-status {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.bat-btn {
+  font-size: 13px;
+}
+
+.sys {
+  margin: 0px 10px;
+}
+
+.cpu-box {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  margin: 0px 10px;
+  border-radius: 15px;
+  background-color: rgba(45, 52, 66, 0.3);
+}
+
+.ram-box {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  margin: 0px 10px;
+  border-radius: 15px;
+  background-color: rgba(45, 52, 66, 0.3);
+}
+
+.disk-box {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  margin: 0px 10px;
+  border-radius: 15px;
+  background-color: rgba(45, 52, 66, 0.3);
+}
+
+.cpu {
+  border-radius: 100px;
+  margin-top: 20px;
+  background-color: rgb(0, 0, 0);
+  color: $border-primary;
+}
+
+.cpu01 {
+  color: $border-primary;
+}
+
+.cpu02 {
+  color: $text-primary;
+}
+
+.ram {
+  border-radius: 100px;
+  margin-top: 20px;
+  background-color: rgb(0, 0, 0);
+  color: $border-primary;
+}
+
+.ram01 {
+  color: $border-primary;
+}
+
+.ram02 {
+  color: $text-primary;
+}
+
+.disk {
+  border-radius: 100px;
+  margin-top: 20px;
+  background-color: rgb(0, 0, 0);
+  color: $border-primary;
+}
+
+.disk01 {
+  color: $border-primary;
+}
+
+.disk02 {
+  color: $text-primary;
+}
+
+.ramico,
+.diskico,
+.cpuico {
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.cpuico {
+  margin-left: 20px;
+}
+
+.ramico,
+.diskico {
+  margin-left: 25px;
+}
+
+.cpu-text,
+.ram-text,
+.disk-text {
+  margin-bottom: 10px;
+}
+
+.ram-text,
+.disk-text {
+  margin-top: 3.2px;
+}
+
+.sliderctl {
+  box-shadow: 0 2px 3px 2px $shadow-secondary;
+  border-radius: 15px;
+  background-color: rgba(45, 52, 66, 0.3);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.volume-slider {
+  margin-top: 10px;
+  margin-left: 13px;
+}
+
+.light-slider {
+  margin-bottom: 10px;
+  margin-left: 13px;
+}
+
+.vol trough,
+.lig trough {
+  background-color: $bg-darker;
+  box-shadow: 0 2px 3px 2px $shadow-tertiary;
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 250px;
+  margin: 0 20px 0 20px;
+}
+
+.vol trough highlight {
+  background-color: rgb(144, 104, 190);
+  border-radius: 10px;
+}
+
+.volume-slider,
+.volume-short {
+  color: rgb(144, 104, 190);
+}
+
+.lig trough highlight {
+  background-color: rgb(219, 193, 117);
+  border-radius: 10px;
+}
+
+.light-slider {
+  color: rgb(219, 193, 117);
+}

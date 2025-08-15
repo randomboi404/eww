@@ -1,0 +1,99 @@
+* {
+  all: unset;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.background {
+  background-image: url("~/.config/hypr/hyprlock/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.lockscreen-container {
+  padding: 0;
+  margin: 0;
+}
+
+.date-container {
+  margin-top: 300px;
+  margin-bottom: 0;
+}
+
+.date-label {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: rgba(112, 111, 117, 0.9);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.time-container {
+  margin: 0;
+  padding: 0;
+}
+
+.hours-label {
+  font-size: 160px;
+  font-weight: 800;
+  color: rgba(127, 116, 147, 1);
+  font-family: "JetBrains Mono", monospace;
+  margin-bottom: -50px;
+}
+
+.minutes-label {
+  font-size: 160px;
+  font-weight: 800;
+  color: rgba(79, 74, 102, 1.0);
+  font-family: "JetBrains Mono", monospace;
+  margin-top: -50px;
+}
+
+.bottom-container {
+  margin-bottom: 30px;
+}
+
+.user-label {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: rgba(112, 111, 117, 0.9);
+  font-family: "JetBrains Mono", monospace;
+  margin-bottom: 10px;
+}
+
+.caps-label {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: bold;
+  color: rgba(161, 85, 97, 0.9);
+  font-family: "JetBrains Mono", monospace;
+  margin-bottom: 10px;
+}
+
+.input-container {
+  margin-bottom: 30px;
+}
+
+.input-field {
+  min-width: 300px;
+  min-height: 60px;
+  background: rgba(0, 0, 0, 0.0);
+  border: 3px solid;
+  border-image: linear-gradient(45deg, rgba(112, 111, 117, 0.9), rgba(161, 85, 97, 0.9)) 1;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+
+.placeholder {
+  font-style: italic;
+  color: rgba(144, 142, 143, 0.8);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+}
+
+.password-dots {
+  color: rgba(144, 142, 143, 0.8);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  letter-spacing: 0.3em;
+}

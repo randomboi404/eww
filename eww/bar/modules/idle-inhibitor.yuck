@@ -1,0 +1,6 @@
+(defvar idle_inhibit false)
+
+(defwidget idle-inhibitor []
+	(eventbox :cursor "pointer" :onclick "hyprctl dispatch exec $HOME/.config/eww/bar/scripts/inhibitor.sh" :tooltip {idle_inhibit ? "Screen will stay awake" : "Screen can sleep"}
+	(label :class "idle-i" :text {idle_inhibit ? "󰅶" : "󰛊"})
+))

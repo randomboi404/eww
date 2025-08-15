@@ -1,0 +1,81 @@
+(defwindow toggle-menu-wifi
+  :namespace "toggle-menu-wifi"
+  :monitor   0
+  :stacking  "overlay"
+  :geometry  (geometry
+               :anchor "top right"
+               :width  "30%"
+               :height "100px"
+               :x      460
+             )
+  (box
+    :space-evenly false
+    :halign       "end"
+    :valign 	  "start"
+    (revealer
+      :transition "slideup"
+      :reveal     tgwrev
+      :duration   "200ms"
+      (toggle-menu-wifi)
+    )
+  )
+)
+
+(defvar tgwrev false)
+
+(defwidget toggle-menu-wifi []
+  (eventbox
+	:onhoverlost "./bar/popup-menus/scripts/toggle-wifi.sh"
+    (box
+      :class        "parent"
+      :space-evenly false
+      :orientation  "v"
+
+      ;; Header section
+      (box
+        :class        "header"
+        :space-evenly false
+
+        (label
+          :class "title"
+          :text  "     WiFi"
+        )
+
+        (button
+          :class   "exit"
+          :onclick "./bar/popup-menus/scripts/toggle-wifi.sh"
+          (label :text " ")
+        )
+      )
+
+      ;; Body section
+      (box
+        :class        "body"
+        :space-evenly false
+        :orientation  "v"
+
+        ;; Enable wifi
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :vexpand false
+            :onclick "nmcli radio wifi on && ./scripts/toggle-wifi.sh"
+              (label :text "󰖩   Enable")
+          )
+        )
+
+        ;; Disable wifi
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :hexpand false
+            :onclick "nmcli radio wifi off && ./scripts/toggle-wifi.sh"
+            (label :text "󱛅   Disable")
+          )
+        )
+      )
+    )
+  )
+)

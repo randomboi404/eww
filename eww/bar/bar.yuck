@@ -1,0 +1,85 @@
+; Include Modules
+(include "./bar/modules/logo.yuck")
+(include "./bar/modules/workspaces.yuck")
+(include "./bar/modules/cpu.yuck")
+(include "./bar/modules/memory.yuck")
+(include "./bar/modules/updates.yuck")
+(include "./bar/modules/cava.yuck")
+(include "./bar/modules/idle-inhibitor.yuck")
+(include "./bar/modules/network.yuck")
+(include "./bar/modules/bluetooth.yuck")
+(include "./bar/modules/battery.yuck")
+(include "./bar/modules/audio.yuck")
+(include "./bar/modules/clock.yuck")
+(include "./bar/modules/tray.yuck")
+(include "./bar/modules/notifications.yuck")
+
+(defwindow eww-bar
+  :namespace	"bar"
+  :monitor      0
+  :stacking     "fg"
+  :geometry     (geometry
+                  :anchor "top center"
+                  :width  "98%"
+                  :height "3px"
+                )
+	:exclusive true
+
+  (box
+    (revealer
+      :transition "slidedown"
+      :reveal     barrev
+      :duration   "200ms"
+      (bar)
+    )
+  )
+)
+
+(defvar barrev true)
+(deflisten system :initial "" `./bar/scripts/system.sh`)
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+		:space-evenly false
+       
+       ;; LEFT MODULES
+       (box :class "ontainer"
+			:halign "start"
+			:valign "center"
+			:width 750
+			:spacing 10
+			:space-evenly false
+         (logo)
+         (workspaces)
+           (cpu)
+         (memory)
+		)
+
+       ;; CENTER MODULES
+       (box :class "module-center"
+			:halign "center"
+			:valign "center"
+			:hexpand true
+			:spacing 10
+			:space-evenly false
+         (updates)
+	 (cava)
+         (idle-inhibitor)
+)
+       ;; RIGHT MODULES
+       (box :class "module-right"
+			:halign "end"
+			:valign "center"
+			:hexpand true
+			:spacing 10
+			:space-evenly false
+;           (snapper)
+           (network)
+           (bluetooth)
+           (battery)
+           (audio)
+           (clock)
+           (tray)
+	   (notifications)
+)))

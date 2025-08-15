@@ -1,0 +1,5 @@
+(deflisten bluetooth `./bar/scripts/bluetooth.sh`)
+
+(defwidget bluetooth [] 
+  (eventbox :cursor "pointer" :onclick "hyprctl dispatch exec blueman-manager" :onrightclick "./bar/popup-menus/scripts/toggle-bt.sh" (label :text "${bluetooth.icon}" :class "bt-i"))
+)

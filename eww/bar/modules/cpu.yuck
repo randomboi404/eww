@@ -1,0 +1,8 @@
+(defwidget cpu []
+  (box
+		:space-evenly false
+		:orientation "h"
+    (label :text "" :class "cpu-i")
+    (label :class "cpu-t1" :text "${system.cpufreq}" :tooltip "CPU usage")
+	(label :class "cpu-t2" :unindent false :text " | ${system.cpu_usage}%")))
+

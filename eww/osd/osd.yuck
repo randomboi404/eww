@@ -1,0 +1,72 @@
+(defwindow vol-osd
+  :namespace	"osd"
+  :monitor      0
+  :stacking     "overlay"
+  :geometry     (geometry
+                  :anchor "bottom center"
+		:y 100
+                  :width  "200px"
+                  :height "20px"
+                )
+  (box
+    :space-evenly false
+	:valign "start"
+    (revealer
+      :transition "crossfade"
+      :reveal     vosdrev
+      :duration   "200ms"
+      (vol-osd)
+    )
+  )
+)
+
+(defvar vosdrev false)
+(defvar bosdrev true)
+
+(defwidget vol-osd[]
+  (box :class "osd-container" :orientation "h" :space-evenly false
+		(label :text "${volume.icon}" :class "osd-label")
+		(scale
+        :class    "osd-slider"
+        :min      0
+        :max      100
+        :value    {volume.value}
+        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+      )
+	)
+)
+
+(defwindow brightness-osd
+  :namespace	"osd"
+  :monitor      0
+  :stacking     "overlay"
+  :geometry     (geometry
+                  :anchor "bottom center"
+		:y 100
+                  :width  "200px"
+                  :height "20px"
+                )
+  (box
+    :space-evenly false
+	:valign "start"
+    (revealer
+      :transition "crossfade"
+      :reveal     bosdrev
+      :duration   "200ms"
+      (brightness-osd)
+    )
+  )
+)
+
+(defwidget brightness-osd[]
+  (box :class "osd-container" :orientation "h" :space-evenly false
+		(label :text "${brightness.icon}" :class "osd-label")
+		(scale
+        :class    "osd-slider"
+        :min      0
+        :max      100
+        :value    {brightness.value}
+        :onchange "brightnessctl set {}%"
+      )
+	)
+)

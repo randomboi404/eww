@@ -1,0 +1,97 @@
+(defwindow toggle-cpu-profile
+  :namespace "toggle-cpu-profile"
+  :monitor   0
+  :stacking  "overlay"
+  :geometry  (geometry
+               :anchor "top right"
+               :width  "30%"
+               :height "170px"
+               :x      250
+             )
+  (box
+    :space-evenly false
+    :halign       "end"
+	:valign 	  "start"
+    (revealer
+      :transition "slideup"
+      :reveal     tgcrev
+      :duration   "200ms"
+      (toggle-cpu-profile)
+    )
+  )
+)
+
+(defvar tgcrev false)
+
+(defwidget toggle-cpu-profile []
+  (eventbox
+	:onhoverlost "./bar/popup-menus/scripts/toggle-cpu-profile.sh"
+    (box
+      :class        "parent"
+      :space-evenly false
+      :orientation  "v"
+
+      ;; Header section
+      (box
+        :class        "header"
+        :space-evenly false
+
+        (label
+          :class "title"
+          :text  "     Performance Mode"
+        )
+
+        (button
+          :class   "exit"
+          :onclick "./bar/popup-menus/scripts/toggle-cpu-profile.sh"
+          (label :text " ")
+        )
+      )
+
+      ;; Body section: Profiles list
+      (box
+        :class        "body"
+        :space-evenly false
+        :orientation  "v"
+
+        ;; Auto profile
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :vexpand false
+            :onclick "hyprctl dispatch exec $HOME/.config/eww/bar/popup-menus/utils/scripts/cpu-profile.sh a"
+            (box
+              :orientation   "h"
+              :space-evenly  false
+              (label :unindent false :text "        󰓦  ")
+              (label :text "Auto")
+            )
+          )
+        )
+
+        ;; Powersave profile
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :hexpand false
+            :onclick "hyprctl dispatch exec $HOME/.config/eww/bar/popup-menus/utils/scripts/cpu-profile.sh pw"
+            (label :text "   Powersave")
+          )
+        )
+
+        ;; Performance profile
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :hexpand false
+            :onclick "hyprctl dispatch exec $HOME/.config/eww/bar/popup-menus/utils/scripts/cpu-profile.sh pf"
+            (label :text "    Performance")
+          )
+        )
+      )
+    )
+  )
+)

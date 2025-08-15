@@ -1,0 +1,69 @@
+// Import pywal generated colors
+@import "/home/tanish/.cache/wal/colors.scss";
+
+// Pywal generated color aliases
+$shadow-primary: #06060b;
+$shadow-secondary: rgba($color0, 0.9);
+$shadow-tertiary: rgba($color0, 0.3);
+$border-primary: $color8;
+$bg-primary: rgba($color0, 0.98);
+$bg-secondary: rgba($color0, 0.92);
+$bg-tertiary: rgba($color0, 0.75);
+$bg-dark: rgba($color0, 0.28);
+$bg-darker: rgba($color0, 0.3);
+$text-primary: $foreground;
+$text-secondary: $foreground;
+$text-accent: $foreground;
+$text-muted: $color1;
+$text-info: $foreground;
+$bar-bg: $background;
+$bar-text: $foreground;
+$bar-accent: $color4;
+$text-disabled: #737373;
+
+tooltip {
+  background-color: $bar-bg;
+  color: #EBDBB2;
+}
+
+.divider-h {
+  min-height: 3px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  background-color: rgb(0, 0, 0);
+}
+
+.divider-v {
+  min-width: 3px;
+  min-height: 10px;
+  margin-right: 22px;
+  background-color: rgba(#ffffff, 0.5);
+}
+
+/* Bar */
+@import "./bar/bar.scss";
+@import "./bar/popup-menus/calender/calender.scss";
+@import "./bar/popup-menus/dashboard/dashboard.scss";
+@import "./bar/popup-menus/media/media.scss";
+@import "./bar/popup-menus/popups.scss";
+
+/* Dock */
+@import "./dock/dock.scss";
+
+/* Notifications */
+@import "./notifications/notifications.scss";
+
+/* Widgets */
+// Background Panel
+@import "./widgets/bg-panel/bg-panel.scss";
+// Activate Linux
+@import "./widgets/activate-linux/activate-linux.scss";
+
+@import "./lock/lock.scss";
+
+@import "./osd/osd.scss";
+
+* {
+  all: unset;
+  font-family: "Cantarell", "Noto Sans CJK JP", "JetBrainsMono Nerd Font Propo", "Nerd Font", sans-serif;
+}

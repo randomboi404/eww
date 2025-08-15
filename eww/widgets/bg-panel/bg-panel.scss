@@ -1,0 +1,59 @@
+.wdate {
+  font-family: Dosis;
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: rgba($border-primary, 0.8);
+  margin-bottom: -15px;
+}
+
+.wday {
+  font-family: Dosis;
+  font-size: 5.25rem;
+  font-weight: bolder;
+  color: rgba($text-accent, 0.7);
+  margin-bottom: 10px;
+}
+
+.welement {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(#9E916F, 0.9);
+}
+
+.wicon {
+  border: 2px solid $border-primary;
+  border-radius: 100%;
+  color: rgba($text-accent, 0.9);
+  min-height: 1.3rem;
+  min-width: 1.3rem;
+  padding: 20px;
+  font-size: 1.3rem;
+  background-color: rgba(#857965, 0.3);
+  &:hover {
+    background-color: rgba(#857965, 0.2);
+  }
+}
+
+.wqicon {
+  font-size: 4rem;
+  font-weight: bold;
+  color: rgba($text-accent, 0.7);
+}
+
+.wqtext {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgba($text-disabled, 1);
+}
+
+.divider-wv {
+  min-width: 3px;
+  min-height: 10px;
+  margin-right: 22px;
+  background-color: rgba(#ffffff, 0.5);
+}
+
+.divider-wh {
+  min-height: 3px;
+  background-color: rgba(#ffffff, 0.5);
+}

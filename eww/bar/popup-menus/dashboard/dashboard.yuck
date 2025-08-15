@@ -1,0 +1,299 @@
+(defwindow dash
+	:namespace "dashboard"
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry :anchor "top left"
+                        :x "5px"
+                        :y "-4px"
+                        :width "20%"
+                        :height "900px"
+    )
+    (box :space-evenly false
+         :halign "start"
+              (revealer :transition "slideright"
+                        :reveal dashrev
+                        :duration "350ms"
+                        (usrctl-widget :uptime get_uptime)
+              )
+    )
+)
+
+(defpoll get_uptime :interval "1m"
+                  "uptime -p"
+)
+
+(defvar dashrev true)
+
+(defpoll gpu
+  :interval "1s"
+  `./bar/popup-menus/dashboard/scripts/getgpu.sh`)
+
+(deflisten volume
+	"./bar/popup-menus/dashboard/scripts/getvol.sh")
+(deflisten brightness
+	"./bar/popup-menus/dashboard/scripts/getbrightness.sh")
+
+(defwidget usrctl-widget [uptime]
+    (eventbox :space-evenly false
+         :valign "start"
+	:onhoverlost "./bar/popup-menus/scripts/toggle-dashboard.sh"
+    (eventbox :class "shadow-container"
+         :onhoverlost "./scripts/usrctl.sh"
+         (box :orientation "v"
+              :space-evenly false
+         (box :class "main-container"
+              :orientation "v"
+              :halign "center"
+              :space-evenly false
+              (box :class "profile-container"
+                   :space-evenly false
+                   (box :class "profile"
+                        :space-evenly false
+                        :valign "start"
+                        :halign "start"
+                        (box :class "pfp")
+                        (box :class "pfp-text"
+                             :orientation "v"
+                             :space-evenly false
+                             (box :class "username"
+                                  :space-evenly false
+                                  (label :text "Welcome, T")
+                             )
+                             (box :class "uptime"
+                                  :space-evenly false
+                                  (label :limit-width 25 :text "${uptime}")
+                             )
+                             (box :class "ctlpanel"
+                                  (eventbox :cursor "pointer"
+                                            :class "shutdown"
+                                            :onclick "systemctl poweroff"
+                                            :tooltip " Shutdown "
+                                            (label :text "⏻")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "logout"
+                                            :onclick "loginctl terminate-user $USER"
+                                            :tooltip " Logout "
+                                            (label :text "")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "lockscr"
+                                            :onclick "./scripts/lock.sh"
+                                            :tooltip " Lock "
+                                            (label :text "\\uf023")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "reboot"
+                                            :onclick "systemctl reboot"
+                                            :tooltip " Reboot "
+                                            (label :text "\\uf021")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "suspend"
+                                            :onclick "systemctl suspend"
+                                            :tooltip " Sleep "
+                                            (label :text "󰒲")
+                                  )
+                             )
+                        )
+                   )
+              )
+              (box :class "monitor-container"
+                   :orientation "v"
+                   :space-evenly false
+                   (box :class "sysctl"
+                        :orientation "v"
+                        :space-evenly false
+
+                        (box :class "sys"
+								(box
+								:orientation "v"
+								:space-evenly false
+                            (box(box :class "cpu-box" 
+                                 :orientation "v" 
+                                 :space-evenly false
+                                 (eventbox :class "cpu-hover"
+                                           :tooltip " ${round(EWW_CPU.avg,1)}% used "
+                                           (circular-progress :class "cpu"
+                                                    :value {round(EWW_CPU.avg,10)}
+                                                    :thickness 5
+                                                    (box :class "cpuico"
+                                                        (label :text " ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "cpu-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "cpu01"
+                                        "CPU "
+                                      )
+                                      (box :class "cpu02"
+                                        "${round(EWW_CPU.avg,0)}%"
+                                      )
+                                 )
+                            )
+                            (box :class "ram-box" 
+                                 :orientation "v" 
+                                 :space-evenly false
+                                 (eventbox :class "ram-hover"
+                                           :tooltip " ${round(EWW_RAM.used_mem/1073741824,1)}GB used "
+                                           (circular-progress :class "ram"
+                                                    :value {round(EWW_RAM.used_mem_perc,10)}
+                                                    :thickness 5
+                                                    (box :class "ramico"
+                                                         (label :text " ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "ram-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "ram01"
+                                        "RAM "
+                                      )
+                                      (box :class "ram02"
+                                        "${round(EWW_RAM.used_mem_perc,0)}%"
+                                      )
+                                 )
+                            )
+                            (box :class "disk-box"
+                                 :orientation "v" 
+                                 :space-evenly false 
+                                 (eventbox :class "disk-hover"
+                                           :tooltip " ${round(gpu,0)}% used "
+                                           (circular-progress :class "disk"
+                                                    :value "${gpu}"
+                                                    :thickness 5
+                                                    (box :class "diskico"
+                                                         (label :text "󰒓 ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "disk-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "disk01"
+                                        "GPU "
+                                      )
+                                      (box :class "disk02"
+                                        "${gpu}%"
+                                      )
+                                 )
+                            ))
+									(box :class "divider-h")
+									(box
+
+								(box :class "cpu-box" 
+                                 :orientation "v" 
+                                 :space-evenly false
+                                 (eventbox :class "cpu-hover"
+                                           :tooltip " ${round(EWW_CPU.avg,1)}% used "
+                                           (circular-progress :class "cpu"
+                                                    :value {round(EWW_DISK["/"].used_perc,10)}
+                                                    :thickness 5
+                                                    (box :class "cpuico"
+                                                        (label :text " ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "cpu-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "cpu01"
+                                        " ROOT "
+                                      )
+                                      (box :class "cpu02"
+                                        "${round(EWW_DISK["/"].used_perc,0)}%"
+                                      )
+                                 )
+                            )
+                            (box :class "ram-box" 
+                                 :orientation "v" 
+                                 :space-evenly false
+                                 (eventbox :class "ram-hover"
+                                           :tooltip " ${round(EWW_RAM.used_mem/1073741824,1)}GB used "
+                                           (circular-progress :class "ram"
+                                                    :value {round(EWW_DISK["/home"].used_perc,10)}
+                                                    :thickness 5
+                                                    (box :class "ramico"
+                                                         (label :text "󰋜 ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "ram-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "ram01"
+                                        "HOME "
+                                      )
+                                      (box :class "ram02"
+                                        "${round(EWW_DISK["/home"].used_perc,0)}%"
+                                      )
+                                 )
+                            )
+                            (box :class "disk-box"
+                                 :orientation "v" 
+                                 :space-evenly false 
+                                 (eventbox :class "disk-hover"
+                                           :tooltip " ${round(EWW_DISK["/"].used/1073741824,1)}GB used "
+                                           (circular-progress :class "disk"
+                                                    :value {round(EWW_DISK["/"].used_perc,10)}
+                                                    :thickness 5
+                                                    (box :class "diskico"
+                                                         (label :text "󰅟 ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "disk-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "disk01"
+                                        "MEGA "
+                                      )
+                                      (box :class "disk02"
+                                        "${round(EWW_DISK["/"].used_perc,0)}%"
+                                      )
+                                 )
+                            )
+                        ))
+
+                        )
+						(box :class "divider-h")
+                        (box :class "sliderctl"
+                             :orientation "v"
+                             :spacing 15
+                             (box :class "volume-slider"
+                                  :space-evenly false
+                                  :halign "center"
+                                  (label :text "${volume.icon}")
+                                  (scale :class "vol"
+                                         :value "${volume.value}"
+                                         :max 101 
+                                         :min 0
+                                         :round-digits 0
+                                         :onchange "pamixer --set-volume {}"
+                                  )
+                             )
+                             (box :class "light-slider"
+                                  :space-evenly false
+                                  :halign "center"
+                                  (label :text "${brightness.icon}")
+                                  (scale :value "${brightness.value}"
+                                         :class "lig"
+                                         :max 101 
+                                         :min 1
+                                         :round-digits 0
+                                         :onchange "brightnessctl set {}%"
+                                  )
+                             )
+                        )
+                   )
+              )
+         )
+         )
+    ))
+)
+
+(deflisten batico "./scripts/batico.sh")
+(deflisten batest "./scripts/batest.sh")

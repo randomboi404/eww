@@ -1,0 +1,29 @@
+(defwindow activate-linux
+	:namespace "activate-linux"
+    :monitor 0
+    :stacking "bg"
+    :geometry (geometry :anchor "bottom right"
+		:x 30
+                        :width "10%"
+                        :height "10%"
+    )
+    (box :space-evenly false
+         :halign "end"
+              (revealer :transition "slideleft"
+                        :reveal x
+                        :duration "350ms"
+						(activate)
+              )
+    )
+)
+
+(defvar x true)
+
+(defwidget activate []
+	(box
+		:orientation "v"
+		:space-evenly false
+	(label :xalign 0 :class "act-h" :text "Activate Linux")
+	(label :xalign 0 :class "act-t" :text "Go to Settings to activate Linux")
+	)
+)

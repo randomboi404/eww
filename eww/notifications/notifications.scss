@@ -1,0 +1,180 @@
+$bar_bg: #282c34;
+$bar_fg: #abb2bf;
+$bar_border: #3b4048;
+$reply_hover: #3b4048;
+$hourcolor: #61afef;
+
+@import "/home/tanish/.cache/wal/colors.scss";
+// Pywal color aliases - mapping to eww theme variables
+$shadow-primary: #06060b;
+$shadow-secondary: rgba($color0, 0.9);
+$shadow-tertiary: rgba($color0, 0.3);
+$border-primary: $color8;
+$bg-primary: rgba($color0, 0.98);
+$bg-secondary: rgba($color0, 0.92);
+$bg-tertiary: rgba($color0, 0.75);
+$bg-dark: rgba($color0, 0.28);
+$bg-darker: rgba($color0, 0.3);
+$text-primary: $foreground;
+$text-secondary: $foreground;
+$text-accent: $foreground;
+$text-muted: $color1;
+$text-info: $foreground;
+$bar-bg: $background;
+$bar-text: $foreground;
+$bar-accent: $color4;
+$text-disabled: #737373;
+
+.end-default-notification-box-low {
+    background-color: $bar_bg;
+    padding: 12px;
+    padding-left: 8px;
+    margin: 12px;
+    border-radius: 10px;
+    border: 1px dashed blue;
+}
+
+.end-default-notification-box-normal {
+    background-color: $bar_bg;
+    padding: 12px;
+    padding-left: 8px;
+    margin: 12px;
+    border-radius: 10px;
+    border: 2px solid $border-primary;
+}
+
+.end-default-notification-box-critical {
+    background-color: $bar_bg;
+    padding: 12px;
+    padding-left: 8px;
+    margin: 12px;
+    border-radius: 10px;
+    border: 2px solid #ff0000;
+}
+
+.end-default-notification-title-bar {
+    background-color: $bar_bg;
+    margin: 3px;
+    border-bottom: 1px solid $bar_border;
+}
+
+.end-default-notification-appicon {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.end-default-notification-appname {
+    color: $bar_fg;
+    margin-right: 12px;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.end-default-notification-body-box {
+    margin-top: 12px;
+}
+
+.notification-text {
+    color: $bar_fg;
+    font-family: 'JetBrainsMono Nerd Font';
+}
+
+.notification-title {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.notification-content {
+    font-size: .8em;
+}
+
+.end-notification-buttons {
+    margin-top: 20px;
+}
+
+.end-notification-button {
+    background-color: $bar_bg;
+    color: $bar_fg;
+    padding: 8px;
+    border-radius: 10px;
+    margin-right: 12px;
+    border: 1px solid $bar_border;
+}
+
+.end-notification-reply {
+    background-color: $bar_bg;
+    color: $bar_fg;
+    padding: 8px;
+    border-radius: 10px;
+    margin-right: 12px;
+    border: 1px solid $bar_border;
+}
+
+.end-notification-reply:hover:focus {
+    background-color: $bar_fg;
+    color: $hourcolor;
+    padding: 8px;
+    border-radius: 10px;
+    margin-right: 12px;
+    border: 1px solid $bar_border;
+}
+
+.end-notification-button:hover {
+    background-color: $bar_fg;
+    color: $bar_bg;
+    padding: 8px;
+    border-radius: 10px;
+    margin-right: 12px;
+    border: 1px solid $bar_border;
+}
+
+.end-history-frame {
+    background-color: $bar_bg;
+    padding: 12px;
+    padding-left: 8px;
+    border-radius: 10px;
+}
+
+.end-history-box {
+    background-color: $bar_bg;
+    padding: 12px;
+  margin: 5.5px;
+  border-radius: 20px;
+    border-radius: 20px;
+  border: 1px solid $shadow-primary;
+}
+
+.end-history-title-bar {
+    background-color: $bar_bg;
+    margin: 1px;
+    border-bottom: 1px solid $bar_border;
+}
+
+.end-history-appicon {
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.end-history-appname {
+    color: $bar_fg;
+    margin-right: 5px;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.end-history-body-box {
+    margin-top: 3px;
+}
+
+.content-box {
+    margin-left: 12px;
+}
+
+.notif-container {
+  background-color: rgba($bg-secondary, 0.1);
+  border-radius: 20px;
+  padding: 12px;
+  border: 1px solid $shadow-primary;
+}

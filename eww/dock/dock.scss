@@ -1,0 +1,130 @@
+$fg:        #fbf5e9;
+$fg-alt:    #545450;
+$bg:        $bg-primary; //#2f2524;
+$bg-alt:    $color1; //#52433e;
+
+$shadow:    #1e1e1e;
+
+$primary:       #f26f21;
+$primary-alt:   #eeeecc;
+$secondary:     #ce9578;
+$secondary-alt: #a0a86d;
+
+/***** Window *******************************************************/
+.window_bottom_bar {
+    // background-color: rgba($primary, 0.5);
+}
+
+/***** Widget *******************************************************/
+.bottom_bar_root_box {
+    transition: 300ms ease;
+}
+
+.bottom_bar_dock_center {
+    background-color: $bg;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 0.4rem $shadow;
+}
+
+.dock_center_bumper_left {
+    background-color: $bg-alt;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.dock-app-launcher {
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    transition: 200ms ease;
+
+    .icon {
+        color: $primary-alt;
+        font-size: 2.8rem;
+    }
+
+    &:hover {
+        opacity: 0.5; 
+    }
+}
+
+.dock_center_launch_terminal {
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    transition: 200ms ease;
+
+    .icon {
+        color: $secondary;
+        font-size: 2.8rem;
+    }
+
+    &:hover {
+        opacity: 0.5; 
+    }
+}
+
+.dock_center_launch_browser {
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    transition: 200ms ease;
+
+    .icon {
+        color: $secondary-alt;
+        font-size: 2.8rem;
+    }
+
+    &:hover {
+        opacity: 0.5; 
+    }
+}
+
+
+.dock_center_launch_ss_full {
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    transition: 200ms ease;
+
+    .icon {
+        color: $primary-alt;
+        font-size: 2.3rem;
+    }
+
+    &:hover {
+        opacity: 0.5; 
+    }
+}
+
+.dock_center_launch_ss_select {
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    transition: 200ms ease;
+
+    .icon {
+        color: $secondary-alt;
+        font-size: 2.7rem;
+        padding-right: 0.1rem;
+    }
+
+    &:hover {
+        opacity: 0.5; 
+    }
+}
+
+.dock_center_launch_right_mplayer {
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    transition: 300ms ease;
+
+    .icon {
+        color: $secondary;
+        font-size: 2.8rem;
+        padding-right: 0.5rem;
+    }
+
+    &:hover {
+        opacity: 0.5; 
+    }
+}
+
+.dock_center_bumper_right {
+    background-color: $bg-alt;
+    border-radius: 0rem 1rem 1rem 0rem;
+}

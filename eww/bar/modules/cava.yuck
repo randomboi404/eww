@@ -1,0 +1,6 @@
+(deflisten cava :initial "" `./bar/scripts/cava.sh`)
+
+(defwidget cava []
+	(eventbox :cursor "pointer" :onclick "./bar/popup-menus/media/scripts/toggle-music.sh"
+(label :text "${cava}" :class "cava")
+))

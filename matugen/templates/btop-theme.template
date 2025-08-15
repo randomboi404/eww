@@ -1,0 +1,89 @@
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg] = "{{ colors.background.dark.hex }}"
+
+# Main text color
+theme[main_fg] = "{{ colors.on_background.dark.hex }}"
+
+# Title color for boxes
+theme[title] = "{{ colors.secondary.dark.hex }}"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg] = "{{ colors.on_background.dark.hex }}"
+
+# Selected item background (processes box)
+theme[selected_bg] = "{{ colors.primary.dark.hex }}"
+
+# Selected item foreground
+theme[selected_fg] = "{{ colors.error_container.dark.hex }}"
+
+# Inactive/disabled text
+theme[inactive_fg] = "{{ colors.secondary_container.dark.hex }}"
+
+# Graph text (e.g. uptime/scaling)
+theme[graph_text] = "{{ colors.tertiary_container.dark.hex }}"
+
+# Background of percentage meters
+theme[meter_bg] = "{{ colors.tertiary_container.dark.hex }}"
+
+# Misc colors (process box details)
+theme[proc_misc] = "{{ colors.primary_fixed.dark.hex }}"
+
+# CPU box outline
+theme[cpu_box] = "{{ colors.tertiary.dark.hex }}"
+
+# Memory/disks box outline
+theme[mem_box] = "{{ colors.secondary.dark.hex }}"
+
+# Net up/down box outline
+theme[net_box] = "{{ colors.primary_fixed.dark.hex }}"
+
+# Processes box outline
+theme[proc_box] = "{{ colors.primary.dark.hex }}"
+
+# Divider lines
+theme[div_line] = "{{ colors.surface_container_low.dark.hex }}"
+
+# Temperature graph colors
+theme[temp_start] = "{{ colors.tertiary.dark.hex }}"
+theme[temp_mid]   = "{{ colors.primary.dark.hex }}"
+theme[temp_end]   = "{{ colors.tertiary.dark.hex }}"
+
+# CPU graph gradient
+theme[cpu_start] = "{{ colors.primary.dark.hex }}"
+theme[cpu_mid]   = "{{ colors.tertiary.dark.hex }}"
+theme[cpu_end]   = "{{ colors.tertiary.dark.hex }}"
+
+# Memory/Disk free meter (use primary dark)
+theme[free_start] = "{{ colors.primary.dark.hex }}"
+theme[free_mid]   = "{{ colors.primary.dark.hex }}"
+theme[free_end]   = "{{ colors.primary.dark.hex }}"
+
+# Cached meter (primary_fixed)
+theme[cached_start] = "{{ colors.primary_fixed.dark.hex }}"
+theme[cached_mid]   = "{{ colors.primary_fixed.dark.hex }}"
+theme[cached_end]   = "{{ colors.primary_fixed.dark.hex }}"
+
+# Available meter (secondary dark)
+theme[available_start] = "{{ colors.secondary.dark.hex }}"
+theme[available_mid]   = "{{ colors.secondary.dark.hex }}"
+theme[available_end]   = "{{ colors.secondary.dark.hex }}"
+
+# Used meter (tertiary dark)
+theme[used_start] = "{{ colors.tertiary.dark.hex }}"
+theme[used_mid]   = "{{ colors.tertiary.dark.hex }}"
+theme[used_end]   = "{{ colors.tertiary.dark.hex }}"
+
+# Download graph (secondary → tertiary)
+theme[download_start] = "{{ colors.secondary.dark.hex }}"
+theme[download_mid]   = "{{ colors.tertiary_container.dark.hex }}"
+theme[download_end]   = "{{ colors.tertiary_container.dark.hex }}"
+
+# Upload graph (tertiary → primary)
+theme[upload_start] = "{{ colors.tertiary.dark.hex }}"
+theme[upload_mid]   = "{{ colors.primary.dark.hex }}"
+theme[upload_end]   = "{{ colors.primary.dark.hex }}"
+
+# Process box color gradient (secondary → tertiary_container)
+theme[process_start] = "{{ colors.secondary.dark.hex }}"
+theme[process_mid]   = "{{ colors.tertiary_container.dark.hex }}"
+theme[process_end]   = "{{ colors.tertiary_container.dark.hex }}"

@@ -1,0 +1,322 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 0,
+  "margin": "5 15 0 15",
+  "modules-left": [
+    "custom/separator",
+    "custom/logo",
+    "hyprland/workspaces",
+	"cpu#icon",
+	"cpu#text",
+	"memory#icon",
+	"memory#text"
+  ],
+  "modules-center": [
+    "custom/updates#icon",
+    "custom/updates#text",
+    "idle_inhibitor",
+    "hyprland/window",
+    "custom/notification"
+  ],
+  "modules-right": [
+    "custom/snapper",
+    "network#icon",
+    "network#text",
+    "bluetooth#icon",
+    "battery#icon",
+    "battery#text",
+    "pulseaudio#icon",
+    "pulseaudio#text",
+    "clock#icon",
+    "clock#text",
+    "tray",
+    "custom/separator"
+  ],
+
+  "custom/separator": {
+    "format": "  ",
+    "tooltip": false
+  },
+
+  "custom/logo": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "I use Arch btw.",
+    "on-click": "$HOME/.config/eww/scripts/toggle-dashboard.sh",//"rofi -show drun",
+    "on-click-right": "kitty btop --force-utf",
+    "interval": "once"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
+    },
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "eDP-1": [1, 2, 3, 9, 10]
+    }
+  },
+
+  "custom/cava": {
+    "exec": "~/.config/waybar/scripts/cava.sh waybar",
+    "hide-empty": true,
+	"interval": "once",
+    "tooltip": true,
+    "return-type": "json",
+    "on-click": "bash -c 'if playerctl status | grep -q Playing; then playerctl pause; else playerctl play; fi'",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "custom/weather#icon": {
+    "exec": "~/.local/bin/weather.sh icon",
+    "interval": 600,
+    "tooltip": false
+  },
+
+  "custom/weather#text": {
+    "exec": "~/.local/bin/weather.sh text",
+    "interval": 600,
+    "tooltip": true,
+    "return-type": "json"
+  },
+
+  "cpu#icon": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "cpu#text": {
+    "interval": 1,
+    "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+    "signal": 1,
+    "on-click": "pkill -SIGRTMIN+1 waybar",
+    "tooltip": true,
+    "tooltip-format": "CPU Usage: {usage}%"
+  },
+
+  "memory#icon": {
+    "interval": 3,
+    "format": "",
+    "tooltip": false
+  },
+
+  "memory#text": {
+    "interval": 3,
+    "format": "{used:0.2f} / {total:0.0f} GB",
+    "signal": 2,
+    "on-click": "pkill -SIGRTMIN+2 waybar",
+    "tooltip": true,
+    "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB"
+  },
+
+  "custom/updates#icon": {
+    "format": "{}",
+	"signal": 10,
+    "interval": 1800,
+    "tooltip": false,
+    "exec": "~/.config/waybar/scripts/updator.sh img"
+  },
+
+  "custom/updates#text": {
+    "exec": "~/.config/waybar/scripts/updator.sh text",
+	"signal": 10,
+    "interval": 1800,
+    "tooltip": true,
+    "on-click": "~/.config/waybar/scripts/updator.sh up",
+    "return-type": "json"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰛊"
+    },
+    "tooltip-format-activated": "Screen will stay awake",
+    "tooltip-format-deactivated": "Screen can sleep"
+  },
+
+  "hyprland/window": {
+    "format": "{class}",
+    "icon": true,
+	"on-click": "$HOME/.config/eww/scripts/toggle-music.sh",
+	"tooltip": false,
+    "rewrite": {
+      "brave-browser": "Brave Browser",
+      "discord": "Discord",
+      "vesktop": "Discord",
+	  "org.telegram.desktop": "Telegram",
+      "org.kde.kate": "Kate",
+      "btrfs-assistant": "BTRFS Assistant",
+      "org.gnome.baobab": "Disk Usage Analyzer",
+      "org.gnome.World.PikaBackup": "Pika Backup",
+      "pika-backup": "Pika Backup - Settings",
+      "org.gnome.Lollypop": "Lollypop",
+      "dev.zed.Zed": "Zed Editor",
+      "kitty": "Kitty",
+      "librewolf": "LibreWolf",
+      "thunar": "Thunar",
+      "polkit-gnome-authentication-agent-1": "Authentication",
+      "^$": "~@"
+    },
+    "max-length": 50
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/snapper": {
+    "exec": "~/.config/waybar/scripts/snapper.sh",
+    "interval": "once",
+    "tooltip": "true",
+    "return-type": "json"
+  },
+
+  "network#icon": {
+    "format": "{icon}",
+    "format-icons": {
+      "wifi": "",
+      "ethernet": "󰈀",
+	  "linked": "",
+      "disconnected": "󰖪"
+    },
+    "tooltip": false,
+    "on-click": "$HOME/.config/eww/scripts/toggle-wifi.sh"
+  },
+
+  "network#text": {
+    "format": "{essid}",
+    "format-ethernet": "Wired",
+    "format-disconnected": "Disconnected",
+    "format-alt": "Wifi",
+	"on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+    "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
+    "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
+    "tooltip-format-wifi": "Frequency: {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
+  },
+
+  "bluetooth#icon": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{status}",
+    "tooltip-format-connected": "Connected to {device_alias}: {device_battery_percentage}%",
+    "tooltip-format-disabled": "Bluetooth disabled",
+    "on-click": "blueman-manager",
+	"on-click-right": "$HOME/.config/eww/scripts/toggle-bt.sh"
+  },
+
+  "battery#icon": {
+    "interval": 2,
+    "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 15
+    },
+	"on-click": "$HOME/.config/eww/scripts/toggle-cpu-profile.sh",
+    "tooltip": false,
+    "format": "{icon}",
+    "format-charging": "",
+    "format-plugged": "",
+    "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+    ]
+
+  },
+
+  "battery#text": {
+    "interval": 2,
+    "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-charging": "{capacity}%",
+    "format-plugged": "{capacity}%",
+    "tooltip": true,
+    "tooltip-format": "Battery: {capacity}%\nTime remaining: {time}"
+  },
+
+  "pulseaudio#icon": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": false
+  },
+
+  "pulseaudio#text": {
+    "format": "{volume}%",
+    "format-muted": "{volume}%",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
+  },
+
+  "clock#icon": {
+    "format": "󰥔",
+    "tooltip": false,
+    "on-click": "gnome-clocks"
+  },
+
+  "clock#text": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%a, %d %b}",
+    "signal": 3,
+	"tooltip": false,
+	"on-click-right": "$HOME/.config/eww/scripts/toggle-cal.sh"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8,
+    "show-passive-items": true
+  }
+}

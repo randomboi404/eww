@@ -1,0 +1,8 @@
+[config]
+scheme = "dark"
+format = "hex"
+
+[templates.btop-theme]
+input_path  = "~/.config/matugen/templates/btop-theme.template"
+output_path = "~/.config/btop/themes/matugen.theme"
+post_hook   = ""

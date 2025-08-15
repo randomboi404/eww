@@ -1,0 +1,81 @@
+(defwindow toggle-menu-bt
+  :namespace "toggle-menu-bt"
+  :monitor   0
+  :stacking  "overlay"
+  :geometry  (geometry
+               :anchor "top right"
+               :width  "30%"
+               :height "100px"
+               :x      350
+             )
+  (box
+    :space-evenly false
+    :halign       "end"
+	:valign		  "start"
+    (revealer
+      :transition "slideup"
+      :reveal     tgbrev
+      :duration   "200ms"
+      (toggle-menu-bt)
+    )
+  )
+)
+
+(defvar tgbrev false)
+
+(defwidget toggle-menu-bt []
+  (eventbox
+	:onhoverlost "./bar/popup-menus/scripts/toggle-bt.sh"
+	(box
+      :class        "parent"
+      :space-evenly false
+      :orientation  "v"
+
+      ;; Header section
+      (box
+        :class        "header"
+        :space-evenly false
+
+        (label
+          :class "title"
+          :text  "     Bluetooth"
+        )
+
+        (button
+          :class   "exit"
+          :onclick "./bar/popup-menus/scripts/toggle-bt.sh"
+          (label :text " ")
+        )
+      )
+
+      ;; Body section
+      (box
+        :class        "body"
+        :space-evenly false
+        :orientation  "v"
+
+        ;; Enable bluetooth
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :vexpand false
+            :onclick "rfkill unblock bluetooth && ./scripts/toggle-bt.sh"
+              (label :text "󰂯   Enable")
+          )
+        )
+
+        ;; Disable bluetooth
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class   "button"
+            :hexpand false
+            :onclick "rfkill block bluetooth && ./scripts/toggle-bt.sh"
+            (label :text "󰂲   Disable")
+          )
+        )
+      )
+    )
+  )
+)

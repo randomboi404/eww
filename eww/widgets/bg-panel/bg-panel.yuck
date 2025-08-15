@@ -1,0 +1,54 @@
+(defwindow bg-panel
+  :namespace	"bg-panel"
+  :monitor      0
+  :stacking     "bg"
+  :geometry     (geometry
+                  :anchor "top left"
+		:x "1%"
+		:y "3%"
+                  :width  "20%"
+                  :height "20%"
+                )
+      (widget)
+)
+
+(defvar y true)
+
+(defpoll weather :interval "3h" `./widgets/bg-panel/scripts/weather.sh`)
+(defpoll quote :interval "1h" `while true; do data=$(curl -s https://dummyjson.com/quotes/random); quote=$(jq -r '.quote' <<< "$data"); if [ \${#quote} -le 70 ]; then echo "$data"; break; fi; done`)
+
+(defpoll date :interval "1h" `date --utc +'{"date":"%d %B, %Y","day":"%A"}'`)
+(defpoll uptime :interval "30s" `awk '{d=int($1/86400);h=int(($1%86400)/3600);m=int(($1%3600)/60);} END {if(d>0) printf "%d days %d hrs %d min", d,h,m; else if(h>0) printf "%d hrs %d min", h,m; else if(m>0) printf "%d min", m; else print "0 min"}' /proc/uptime`)
+
+(defwidget widget []
+	(box :orientation "h" :space-evenly false :halign "start" :spacing 25
+		(box :orientation "v" :space-evenly false :spacing 20
+			(eventbox :height 70 :width 70 :class "wicon":cursor "pointer" :onclick "hyprctl dispatch exec vesktop"
+		(label :text ""))
+			(eventbox :height 70 :width 70 :class "wicon" :cursor "pointer" :onclick "hyprctl dispatch exec librewolf"
+		(label :text ""))
+			(eventbox :height 70 :width 70 :class "wicon" :cursor "pointer" :onclick "hyprctl dispatch exec spotify"
+		(label :text ""))
+			(eventbox :height 70 :width 70 :class "wicon" :cursor "pointer" :onclick "hyprctl dispatch exec 'kitty -e nvim'"
+		(label :text ""))
+		)
+		(box :orientation "v" :space-evenly false :spacing 20
+	(label :class "wdate" :xalign 0 :text "${date.date}")
+	(label :class "wday" :xalign 0 :text "${date.day}")
+
+			(box :orientation "h" :space-evenly false
+			(box :class "divider-v")
+					(revealer :reveal y :transition "slideright"
+						(box :orientation "v" :space-evenly false
+	(label :class "welement" :xalign 0 :text "() Up 			${uptime}")
+;	(label :class "welement" :xalign 0 :text "() Packages 		${pkgcount} Only!")
+;						(label :class "welement" :xalign 0 :text "() OS Age		${osage}")
+	(label :class "welement" :xalign 0 :text "() Weather		${weather}")
+
+						(box :orientation "h" :style "margin-top: 1rem;" :spacing 15 :space-evenly false
+				(label :class "wqicon" :text "󰚢")
+							(box :orientation "v" :space-evenly false :style "margin-top: 1rem;"
+				(label :class "wqtext" :lines 3 :justify "center" :limit-width 27 :text "${quote.quote}")
+								(label :class "wqtext" :lines 1 :xalign 1 :justify "end" :limit-width 5 :style "color: rgba(#737373, 0.6);" :text "- ${quote.author}")
+						))
+))))))

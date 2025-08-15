@@ -1,0 +1,46 @@
+(defwindow lockscreen
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "100%" :height "100%")
+  :stacking "overlay"
+  :exclusive false
+  :focusable true
+  :wm-ignore false
+  
+  (overlay
+    ;; Background
+    (box :class "background")
+    
+    ;; Main lockscreen content
+    (box :orientation "vertical" :class "lockscreen-container"
+      ;; Date at top
+      (box :valign "start" :halign "center" :class "date-container"
+        (label :class "date-label" :text date_text))
+      
+      ;; Time in center
+      (box :valign "center" :halign "center" :class "time-container" :orientation "vertical"
+        (label :class "hours-label" :text hours_text)
+        (label :class "minutes-label" :text minutes_text))
+      
+      ;; Bottom section with user info, input, and caps lock
+      (box :valign "end" :halign "center" :class "bottom-container" :orientation "vertical"
+        (label :class "user-label" :text user_text :visible {user_text != ""})
+        (label :class "caps-label" :text caps_text :visible {caps_text != ""})
+        
+        ;; Input field simulation
+        (box :class "input-container" :halign "center"
+          (box :class "input-field" :orientation "horizontal"
+            (label :class "placeholder" :text placeholder_text :visible {password == ""})
+            (label :class "password-dots" :text password_display :visible {password != ""})))))))
+
+;; Variables for dynamic content
+(defvar password "")
+(defvar password_display "")
+(defvar placeholder_text "Knock, knock! Who's there?")
+
+;; Polls for updating content
+(defpoll hours_text :interval "1s" "date +'%H'")
+(defpoll minutes_text :interval "1s" "date +'%M'")
+(defpoll date_text :interval "60s" "date +'%A, %d %B %Y'")
+(defpoll user_text :interval "60s" "echo \"  Hello, $USER!\"")
+(defpoll caps_text :interval "100ms" 
+  "[ \"$(cat /sys/class/leds/input*::capslock/brightness 2>/dev/null)\" = \"1\" ] && echo \"Caps Lock is Active!\" || echo \"\"")

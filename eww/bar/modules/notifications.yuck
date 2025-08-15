@@ -1,0 +1,5 @@
+(defwidget notifications []
+  (eventbox :cursor "pointer" :onclick "./notifications/scripts/toggle-notifications-history.sh"
+	(label :text "" :class "notif-hist")
+	)
+)

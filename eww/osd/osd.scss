@@ -1,0 +1,38 @@
+.osd-slider trough {
+  background-color: $bg-primary;
+  border-radius: 5px;
+  min-height: 10px;
+  min-width: 270px;
+  margin: 0 0px 0 20px;
+}
+
+.osd-slider trough > slider {
+  background-color: black;
+  border-radius: 100%;
+  border: 3px solid rgba($color14, 0.9);
+  min-width: 10px;
+  min-height: 10px;
+  margin: -10px;
+}
+
+.osd-slider trough highlight {
+  background-image: linear-gradient(to right, $color1, $color13);
+  border-radius: 10px;
+}
+
+.osd-container {
+  background-color: rgba(#000000, 0.6);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.osd-label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba($color14, 0.9);
+  font-family: "JetBrains Mono", monospace;
+  margin-left: 0.3rem;
+  margin-right: -0.5rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+}

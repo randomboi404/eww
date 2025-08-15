@@ -1,0 +1,8 @@
+(deflisten updates :initial "{\"icon\": \"\", \"count\": \"\", \"tooltip\": \"\"}" `./bar/scripts/updator.sh`)
+
+(defwidget updates []
+	(eventbox :cursor "pointer" :tooltip "${updates.tooltip}" :visible { "${updates.count}" != "" ? true : false}
+		(box  :space-evenly false :orientation "h"
+  (label :text "${updates.icon}" :class "up-i")
+	(label :text "${updates.count}" :class "up-t"))
+))
