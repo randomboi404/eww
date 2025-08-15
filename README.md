@@ -38,6 +38,15 @@ Install the dependencies via any of the AUR helper (Paru example below):
   paru -Syu --needed $(cat dependencies.lst)
 ```
 After then, copy and paste the relevant folders to .config/
+
+Also, create env.json in ~/.env/ and its contents must be as follows:
+
+```bash
+   {
+        "WEATHER_API_KEY": "Your weather api key",
+        "LOCATION": "Your city name"
+   }
+```
     
 ## ❓ FAQ
 
