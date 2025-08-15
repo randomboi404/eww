@@ -19,7 +19,7 @@ My EWW powered Hyprland rice.
 
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss.png)
 
-![creenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss2.png)
+![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss2.png)
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss3.png)
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss1.png)
 ## 📦 Installation
@@ -33,20 +33,20 @@ Install the dependencies via any of the AUR helper (Paru example below):
 ```
 After then, copy and paste the relevant folders to .config/
     
-## FAQ
+## ❓ FAQ
 
-### The alignment is weird and does not look as intended. What to do?
+### The alignment looks wrong / broken.
 
 Make sure you are using eww-git from AUR (for Arch linux) and NOT the eww package from repos.
 
-### There are no colors, it's all transparent!
+### Everything is transparent, no colors.
 
-Make sure you have installed pywal and have successfully used it for any of your wallpapers.
+Ensure Pywal is installed and applied to your wallpaper:
 ```bash
 wal -i /path/to/wallpaper/
 ```
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
  - [ElKowar's Wacky Widgets (EWW)](https://elkowar.github.io/eww/eww.html)
  - [Various EWW posts in r/unixporn (I used snippets from MANY sources)](https://www.reddit.com/r/unixporn/)
