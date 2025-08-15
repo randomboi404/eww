@@ -12,9 +12,12 @@ My EWW powered Hyprland rice.
 - Notification Daemon
 - Widgets
 - Lock screen *(\*)*
+- OSD *(\*)*
 - Memory and cpu efficient (around 50mb to 120mb max memory usage and max 3% of Ryzen 3200 U processor)
 
 *(\*) Bar is written in eww. However, ditto waybar alternative is available as well!*
+
+*(\*)* OSD is written in swaync.
 
 *(\*) Lock screen is currently Hyprlock and not eww.*
 
