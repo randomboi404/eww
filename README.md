@@ -17,7 +17,7 @@ My EWW powered Hyprland rice.
 
 *(\*) Bar is written in eww. However, ditto waybar alternative is available as well!*
 
-*(\*)* OSD is written in swaync.
+*(\*)* OSD is written in swayosd.
 
 *(\*) Lock screen is currently Hyprlock and not eww.*
 
@@ -67,5 +67,6 @@ wal -i /path/to/wallpaper/
  - [Various EWW posts in r/unixporn (I used snippets from MANY sources)](https://www.reddit.com/r/unixporn/)
  - [This EWW rice (For Dock)](https://github.com/Tail-R/xmonad_eww_dotfiles/tree/main)
 - [End-rs (Notification Daemon for EWW)](https://github.com/Dr-42/end-rs)
-- [Hyprlock](https://github.com/hyprwm/hyprlock)
+- [Swayosd and other motivation](https://github.com/tr1xem)
 - [Gruvbox Wallpapers](https://gruvbox-wallpapers.pages.dev/)
+- [Hyprlock](https://github.com/hyprwm/hyprlock)
