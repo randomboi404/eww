@@ -4,7 +4,7 @@
 My EWW powered Hyprland rice.
 
 
-## Features
+## ✨ Features
 
 - Bar
 - Dock
@@ -15,14 +15,14 @@ My EWW powered Hyprland rice.
 - Memory and cpu efficient (around 50mb to 120mb max memory usage and max 3% of Ryzen 3200 U processor)
 *(\*) Lock screen is currently Hyprlock and not eww.*
 
-## Screenshots
+## 📸 Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss.png)
 
 ![creenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss2.png)
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss3.png)
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss1.png)
-## Installation
+## 📦 Installation
 
 Install the dependencies via any of the AUR helper (Paru example below):
 
