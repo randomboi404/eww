@@ -20,3 +20,6 @@ ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 ttf-dosis
+# Color generation
+matugen
+python-pywal
