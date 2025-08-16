@@ -48,6 +48,13 @@ Also, create env.json in ~/.env/ and its contents must be as follows:
    }
 ```
 
+Generate colors based on your wallpaper as shown below:
+
+```bash
+   wal -i /path/to/wallpaper
+   matugen image /path/to/wallpaper
+```
+
 Run `eww daemon` to load the daemon and then run the following to open the bar and widgets:
 
 ```bash
