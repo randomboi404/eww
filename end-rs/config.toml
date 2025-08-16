@@ -1,0 +1,24 @@
+eww_binary_path = "eww"
+icon_dirs = [
+    "/usr/share/icons",
+    "/usr/share/pixmaps",
+]
+icon_theme = "Adwaita"
+eww_notification_window = "notification-frame"
+eww_notification_widget = "end-notification"
+eww_notification_var = "end-notifications"
+eww_history_window = "history-frame"
+eww_history_widget = "end-history"
+eww_history_var = "end-histories"
+eww_reply_window = "reply-frame"
+eww_reply_widget = "end-reply"
+eww_reply_var = "end-replies"
+eww_reply_text = "end-reply-text"
+max_notifications = 10
+notification_orientation = "v"
+update_history = true
+
+[timeout]
+low = 5
+normal = 10
+critical = 0

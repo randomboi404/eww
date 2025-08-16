@@ -28,12 +28,12 @@ My EWW powered Hyprland rice.
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss2.png)
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss3.png)
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss1.png)
-## 📦 Installation
+## 📦 Installation and Usage
 
 Install the dependencies via any of the AUR helper (Paru example below):
 
 ```bash
-  git clone https://github.com/randomboi404/eww
+  git clone https://github.com/randomboi404/eww --depth 1
   cd eww
   paru -Syu --needed $(cat dependencies.lst)
 ```
@@ -47,12 +47,38 @@ Also, create env.json in ~/.env/ and its contents must be as follows:
         "LOCATION": "Your city name"
    }
 ```
+
+Run `eww daemon` to load the daemon and then run the following to open the bar and widgets:
+
+```bash
+   eww open eww-bar
+   eww open bg-panel
+   eww open activate-linux
+```
+
+Some Hyprland keybinds worth looking:
+
+```
+   bind = $mainMod, T, exec, eww update barrev=$( [ "$(eww get barrev)" = "true" ] && echo false || echo true ) && clear
+   bind = $mainMod Shift, R, exec, eww update y=$( [ "$(eww get y)" = "true" ] && echo false || echo true ) && eww update x=$( [ "$(eww get x)" = "true" ] && echo false || echo true )
+   bind = $mainMod Shift, W, exec, $HOME/.config/hypr/scripts/dock.sh
+```
+
+where, dock.sh is as follows:
+```bash
+    #!/usr/bin/bash
+    pkill -9 -f "$HOME/.config/eww/dock/scripts/toggle-dock.sh" || true
+    "$HOME/.config/eww/dock/scripts/toggle-dock.sh"
+```
     
 ## ❓ FAQ
 
 ### The alignment looks wrong / broken.
 
 Make sure you are using eww-git from AUR (for Arch linux) and NOT the eww package from repos.
+
+### There are no notifications.
+Make sure that the end-rs bin is running in background. It is available either in .config/eww/bin OR see the instructions of the [official repo](https://github.com/Dr-42/end-rs). Also make sure that you have copied end-rs folder to .config/ as well.
 
 ### Everything is transparent, no colors.
 
