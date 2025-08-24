@@ -55,6 +55,8 @@ Generate colors based on your wallpaper as shown below:
    matugen image /path/to/wallpaper
 ```
 
+Open eww.scss file and replace the hardcoded @import as per your username.
+
 Run `eww daemon` to load the daemon and then run the following to open the bar and widgets:
 
 ```bash
