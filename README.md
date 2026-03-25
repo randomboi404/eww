@@ -1,44 +1,46 @@
 
 # My EWW Rice
 
-My EWW powered Hyprland rice.
-
+My EWW-powered Hyprland rice.
 
 ## ✨ Features
 
-- Bar *(\*)*
+- Bar (\)*
 - Dock
 - Dashboard
 - Notification Daemon
 - Widgets
-- Lock screen *(\*)*
-- OSD *(\*)*
-- Memory and cpu efficient (around 50mb to 120mb max memory usage and max 3% of Ryzen 3200 U processor)
+- Lock screen (\)*
+- OSD (\)*
+- Memory and CPU efficient (around 50 MB to 120 MB max memory usage and max 3% of Ryzen 3200 U processor)
 
-*(\*) Bar is written in eww. However, ditto waybar alternative is available as well!*
+(\)* Bar is written in EWW. However, ditto waybar alternative is available as well!*
 
-*(\*)* OSD is written in swayosd.
+(\)* OSD is written in swayosd.
 
-*(\*) Lock screen is currently Hyprlock and not eww.*
+(\)* The Lock screen is currently Hyprlock and not eww.*
 
 ## 📸 Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss.png)
 
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss2.png)
+
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss3.png)
+
 ![Screenshot](https://raw.githubusercontent.com/randomboi404/eww/refs/heads/main/.assets/ss1.png)
+
 ## 📦 Installation and Usage
 
-Install the dependencies via any of the AUR helper (Paru example below):
+Install the dependencies via any of the AUR helpers (Paru example below):
 
 ```bash
   git clone https://github.com/randomboi404/eww --depth 1
   cd eww
   paru -Syu --needed $(cat dependencies.lst)
 ```
-After then, copy and paste the relevant folders to .config/
 
+After then, copy and paste the relevant folders to .config/
 Also, create env.json in ~/.env/ and its contents must be as follows:
 
 ```bash
@@ -55,9 +57,9 @@ Generate colors based on your wallpaper as shown below:
    matugen image /path/to/wallpaper
 ```
 
-Open eww.scss file and replace the hardcoded @import as per your username.
+Open the eww.scss file and replace the hardcoded @import as per your username.
 
-Run `eww daemon` to load the daemon and then run the following to open the bar and widgets:
+Run eww daemon to load the daemon, and then run the following to open the bar and widgets:
 
 ```bash
    eww open eww-bar
@@ -74,34 +76,41 @@ Some Hyprland keybinds worth looking:
 ```
 
 where, dock.sh is as follows:
+
 ```bash
     #!/usr/bin/bash
     pkill -9 -f "$HOME/.config/eww/dock/scripts/toggle-dock.sh" || true
     "$HOME/.config/eww/dock/scripts/toggle-dock.sh"
 ```
+
     
+
 ## ❓ FAQ
 
 ### The alignment looks wrong / broken.
 
-Make sure you are using eww-git from AUR (for Arch linux) and NOT the eww package from repos.
+Make sure you are using eww-git from AUR (for Arch Linux) and NOT the eww package from repos.
 
 ### There are no notifications.
-Make sure that the end-rs bin is running in background. It is available either in .config/eww/bin OR see the instructions of the [official repo](https://github.com/Dr-42/end-rs). Also make sure that you have copied end-rs folder to .config/ as well.
+
+Make sure that the end-rs bin is running in the background. It is available either in .config/eww/bin OR see the instructions of the [official repo](https://github.com/Dr-42/end-rs). Also make sure that you have copied the end-rs folder to .config/ as well.
 
 ### Everything is transparent, no colors.
 
 Ensure Pywal is installed and applied to your wallpaper:
+
 ```bash
 wal -i /path/to/wallpaper/
 ```
 
 ## 🙏 Acknowledgements
 
- - [ElKowar's Wacky Widgets (EWW)](https://elkowar.github.io/eww/eww.html)
- - [Various EWW posts in r/unixporn (I used snippets from MANY sources)](https://www.reddit.com/r/unixporn/)
- - [This EWW rice (For Dock)](https://github.com/Tail-R/xmonad_eww_dotfiles/tree/main)
+- [ElKowar's Wacky Widgets (EWW)](https://elkowar.github.io/eww/eww.html)
+- [Various EWW posts in r/unixporn (I used snippets from MANY sources)](https://www.reddit.com/r/unixporn/)
+- [This EWW rice (for the dock)](https://github.com/Tail-R/xmonad_eww_dotfiles/tree/main)
 - [End-rs (Notification Daemon for EWW)](https://github.com/Dr-42/end-rs)
 - [Swayosd and other motivation](https://github.com/tr1xem)
 - [Gruvbox Wallpapers](https://gruvbox-wallpapers.pages.dev/)
 - [Hyprlock](https://github.com/hyprwm/hyprlock)
+- [Flux](https://github.com/tr1xem/flux)
+
